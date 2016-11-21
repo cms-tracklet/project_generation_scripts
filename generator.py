@@ -532,6 +532,8 @@ for x in modules:
     if m.module == 'MatchEngine':
         m.outputs.append(m.outputs[0]+'_wr_en') 
         m.out_names.append('valid_data')
+	if ('_F1D' in m.name or '_F2D' in m.name or '_F3D' in m.name or '_F4D' in m.name or '_F5D' in m.name):
+	    m.parameters += "#(.DISK(1'b1))"
 	if 'VMPROJ' in m.inputs[1]: #default
           m.start = m.inputs[1].replace(m.name,'')+'start'
           m.done = m.name+'_start'
@@ -691,7 +693,10 @@ for x in modules:
         ons = []
         m.parameters = '#("Layer")'
         if 'FDSK' in m.name:
-            m.parameters = '#("Disk")'
+	    if region == 'D4D6' or region == 'D3D6':
+		m.parameters = '#("Hybrid")'
+            else:
+		m.parameters = '#("Disk")'
             m.inputs = sorted(m.inputs, key=lambda i:(i.split('_')[2])[3])
             if len(m.inputs) > 6:
                 for x in xrange(6):
@@ -736,6 +741,18 @@ for x in modules:
         m.done = m.name+'_start'
         seen_done10_0 = True
     if m.module == 'PurgeDuplicate':
+	if region=='D3D6':
+	    m.parameters = '#(.SCOPE("D3D6"))'
+	if region=='D4D6':
+	    m.parameters = '#(.SCOPE("D4D6"))'
+	if region=='D3':
+	    m.parameters = '#(.SCOPE("D3"))'
+	if region=='D3D4':
+	    m.parameters = '#(.SCOPE("D3D4"))'
+	if region=='D5':
+	    m.parameters = '#(.SCOPE("D5"))'
+	if region=='D5D6':
+	    m.parameters = '#(.SCOPE("D5D6"))'
         for x in range(1,len(m.outputs)+1):
             m.out_names.append('valid_out_'+str(x))
         os = []
