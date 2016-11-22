@@ -23,6 +23,10 @@ cp *_D3D4.dat ../fpga_emulation/.
 ./Wires.py wires.D3D6 
 cp *_D3D6.dat ../fpga_emulation/.
 
+./SubProject.py D4D6
+./Wires.py wires.D4D6 
+cp *_D4D6.dat ../fpga_emulation/.
+
 ./SubProject.py D5D6
 ./Wires.py wires.D5D6 
 cp *_D5D6.dat ../fpga_emulation/.

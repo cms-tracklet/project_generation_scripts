@@ -67,7 +67,7 @@ def matchin(proc,mem):
         if "F4" in mem[8:10]:
             return "4"
         if "F5" in mem[8:10]:
-            return "5"
+            return "7"
     if "FT_B1B2" in proc:
         if "L1" in mem[8:10]:
             return "1"
@@ -78,7 +78,7 @@ def matchin(proc,mem):
         if "B4" in mem[8:10]:
             return "4"
         if "B5" in mem[8:10]:
-            return "5"
+            return "7"
     if "FT_F3F4" in proc:
         if "L1" in mem[8:10]:
             return "1"
@@ -89,7 +89,7 @@ def matchin(proc,mem):
         if "F2" in mem[8:10]:
             return "4"
         if "F5" in mem[8:10]:
-            return "5"
+            return "7"
     if "FT_B3B4" in proc:
         if "L1" in mem[8:10]:
             return "1"
@@ -100,7 +100,7 @@ def matchin(proc,mem):
         if "B2" in mem[8:10]:
             return "4"
         if "B5" in mem[8:10]:
-            return "5"
+            return "7"
     if "FT_F1L" in proc:
         if "F2" in mem[8:10]:
             return "1"
