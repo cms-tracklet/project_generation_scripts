@@ -629,7 +629,7 @@ for x in modules:
 	    m.parameters += ",.INNER(1'b1)"
 	else:
 	    m.parameters += ",.INNER(1'b0),.PHICUT(32'sd700921),.RCUT(32'sd128)"
-	if 'F3F4' in m.name and 'F5' not in m.name:
+	if 'F3F4_F1' in m.name:
 	    m.parameters += ",.F1F2SEED(1'b0)"  
 	m.parameters += ")"
  
@@ -651,7 +651,7 @@ for x in modules:
         m.outputs = topOfList(m.outputs,'FM_FL3FL4') # Put at the top of the list	
         m.outputs = topOfList(m.outputs,'FM_L1') # Put at the top of the list
         m.outputs = topOfList(m.outputs,'FM_L4') # Put at the top of the list
-        if ('MC_F1F2' in m.name):
+        if ('MC_F1F2' in m.name or 'MC_F3F4_F2' in m.name):
 	    m.outputs = topOfList(m.outputs,'FM_F1L1') # Put at the top of the list
         m.outputs = topOfList(m.outputs,'FM_F1F') # Put at the top of the list
         m.outputs = topOfList(m.outputs,'FM_F3F') # Put at the top of the list
