@@ -504,6 +504,8 @@ for x in modules:
         m.inputs = m.inputs+[m.name+'_From_DataStream']        
                 
     if m.module == 'ProjectionRouter':
+        m.inputs = [m.inputs[-1]] + m.inputs[:-1]
+        m.inputs = [m.inputs[-1]] + m.inputs[:-1]
         m.outputs.append(m.outputs[-1]+'_wr_en') # Write enable signal to AllProjection memory
         m.out_names.append('valid_data')
         m.outputs = m.outputs + [x+'_wr_en' for x in m.outputs[:-2]] # Write enable to VMProjection memory
